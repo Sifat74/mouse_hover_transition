@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Animation</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: #01204E;
+            /* position: relative; */
+        }
+
+        .container {
+            padding-top: 120px;
+        }
+
+        .content {
+            padding: 50px;
+            color: #fff;
+            width: 60%;
+            margin: auto;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            border: 2px solid #fff;
+        }
+
+        #ball {
+            width: 600px;
+            height: 600px;
+            background-color: #AF47D2;
+            border-radius: 50%;
+            position: absolute;
+            filter: blur(10px);
+            z-index: 0;
+            opacity: 0.4;
+            top: -420px;
+            left: -600px;
+            display: none;
+        }
+
+        .content:hover #ball {
+            display: block;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <div class="content">
+            <div id="ball">
+
+            </div>
+            <h1>This is the content Section</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptate pariatur aliquam saepe, repellat
+                alias dolore molestias labore distinctio, atque blanditiis quae, veniam officia quas iste at ab sequi.
+                Laudantium quaerat, debitis vero consequatur ratione aut maxime placeat doloribus perferendis, itaque
+                sint dicta praesentium accusamus aperiam eum numquam magni alias!</p>
+        </div>
+    </section>
+    <script>
+        let ball = document.getElementById('ball');
+        document.addEventListener('mousemove', (e) => {
+            let x = e.clientX;
+            let y = e.clientY;
+            // ball.style.transform = `translate(${x}px, ${y}px)`
+            ball.animate([
+                { transform: `translate(${x}px, ${y}px)` }
+            ], {
+                duration: 8000
+            })
+        })
+    </script>
+</body>
+
+</html>
